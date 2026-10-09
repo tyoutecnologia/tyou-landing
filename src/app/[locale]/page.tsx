@@ -11,13 +11,14 @@ import { LandingPortfolio } from "@/src/components/landing/portfolio"
 import { LandingFaq } from "@/src/components/landing/faq"
 import { LandingContact } from "@/src/components/landing/contact"
 import { LandingFooter } from "@/src/components/landing/footer"
+import { landingFontVariables } from "@/src/components/landing/fonts"
 import { useTranslations } from "next-intl"
 
 export default function Home() {
   const t = useTranslations("Landing.meta")
 
   return (
-    <div className="ty-landing">
+    <div className={`ty-landing ${landingFontVariables}`}>
       <a href="#conversa" className="ty-skip-link">
         {t("skipLink")}
       </a>
