@@ -4,19 +4,12 @@
    used by the rest of the app. */
 
 /* ── Fonts ─────────────────────────────────────────────────────────────── */
+/* Tactic Sans is the brand face: logotype, hero, oversized numerals. Only
+   the two cuts those use are declared. The other families come from
+   next/font in src/components/landing/fonts.ts. */
 @font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Thn.otf") format("opentype");font-weight:100;font-style:normal;font-display:swap}
-@font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Lgt.otf") format("opentype");font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Reg.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Med.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Bld.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Blk.otf") format("opentype");font-weight:800;font-style:normal;font-display:swap}
-@font-face{font-family:"Tactic Sans";src:url("/fonts/tyou/TacticSansExd-Ult.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
 
-@font-face{font-family:"Neue Plak";src:url("/fonts/tyou/NeuePlak-Thin.ttf") format("truetype");font-weight:100;font-style:normal;font-display:swap}
-@font-face{font-family:"Neue Plak";src:url("/fonts/tyou/NeuePlak-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:"Neue Plak";src:url("/fonts/tyou/NeuePlak-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Neue Plak";src:url("/fonts/tyou/NeuePlak-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:"Neue Plak";src:url("/fonts/tyou/NeuePlak-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
 
 /* ── Tokens ────────────────────────────────────────────────────────────── */
 .ty-landing{
@@ -76,9 +69,14 @@
   --focus-ring:0 0 0 3px rgba(0,165,180,.45);
 
   /* Typography */
-  --font-display:"Tactic Sans",system-ui,sans-serif;
-  --font-text:"Neue Plak",Helvetica,Arial,sans-serif;
-  --font-mono:ui-monospace,"SFMono-Regular",Menlo,monospace;
+  /* Logotype, hero and big standalone figures only. */
+  --font-brand:"Tactic Sans",system-ui,sans-serif;
+  /* Headings, at 700/800. */
+  --font-display:var(--font-schibsted-grotesk),"Schibsted Grotesk",system-ui,sans-serif;
+  /* Interface and running text, at 400/500/600. */
+  --font-text:var(--font-instrument-sans),"Instrument Sans",system-ui,sans-serif;
+  /* Values, dates, labels. */
+  --font-mono:var(--font-ibm-plex-mono),"IBM Plex Mono",ui-monospace,Menlo,monospace;
 
   --weight-regular:400;
   --weight-medium:500;
@@ -184,7 +182,7 @@ html:has(.ty-landing){scroll-behavior:smooth}
 .ty-chip-corner::after{content:"";position:absolute;top:0;right:0;width:var(--chip,22px);height:var(--chip,22px);background:var(--chip-ink,var(--tyou-teal));clip-path:polygon(100% 0,100% 100%,0 0);pointer-events:none}
 .ty-underscore-inline{display:inline-flex;align-items:center;gap:var(--space-3,12px)}
 .ty-underscore-inline::before{content:"";width:var(--rule-w,32px);height:3px;background:var(--rule-ink,var(--tyou-teal));flex:none}
-.ty-numeral{font-family:var(--font-display);font-weight:200;font-size:var(--text-4xl,52px);line-height:.85;color:var(--graphite-200);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ty-numeral{font-family:var(--font-brand);font-weight:200;font-size:var(--text-4xl,52px);line-height:.85;color:var(--graphite-200);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .ty-numeral-accent{color:var(--teal-300)}
 @keyframes ty-drift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(2%,-2%,0) scale(1.06)}}
 .ty-glow-drift::before{animation:ty-drift 18s ease-in-out infinite}
